@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2021-10-04" view-index="0" gantt-divider-location="390" resource-divider-location="300" version="3.1.3103" locale="es_ES">
+    <description/>
+    <view zooming-state="default:7" id="gantt-chart">
+        <field id="tpd3" name="Nombre" width="207" order="0"/>
+        <field id="tpd4" name="Fecha de inicio" width="93" order="1"/>
+        <field id="tpd5" name="Fecha de fin" width="86" order="2"/>
+        <option id="color.recent">
+            <![CDATA[#000000 #f4f4f4 #ff0033]]>
+        </option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nombre" width="210" order="0"/>
+        <field id="1" name="Función" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="20" name="Primera GDD" color="#ff0033" meeting="true" start="2021-05-28" duration="0" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true">
+            <depend id="68" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="21" name="Segunda GDD" color="#ff0033" meeting="true" start="2021-11-12" duration="0" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+        <task id="77" name="PREPRODUCCIÓN" meeting="false" start="2021-05-12" duration="132" complete="0" expand="true">
+            <depend id="78" type="2" difference="0" hardness="Strong"/>
+            <task id="129" name="Redacción GDD 1" color="#8cb6ce" meeting="false" start="2021-05-12" duration="12" complete="0" thirdDate="2020-02-03" thirdDate-constraint="0" expand="false">
+                <task id="0" name="Idea" color="#8cb6ce" meeting="false" start="2021-05-12" duration="2" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+                <task id="1" name="Diseño artístico" color="#8cb6ce" meeting="false" start="2021-05-25" duration="3" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+                <task id="3" name="Interfaz" color="#8cb6ce" meeting="false" start="2021-05-25" duration="2" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="5" name="Redacción GDD 2" color="#8cb6ce" meeting="false" start="2021-11-03" duration="7" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="false">
+                <task id="130" name="Idea" color="#8cb6ce" meeting="false" start="2021-11-03" duration="1" complete="0" thirdDate="2021-04-01" thirdDate-constraint="0" expand="true"/>
+                <task id="131" name="Diseño artístco" color="#8cb6ce" meeting="false" start="2021-11-10" duration="2" complete="0" thirdDate="2021-04-01" thirdDate-constraint="0" expand="true"/>
+                <task id="132" name="Interfaz" color="#8cb6ce" meeting="false" start="2021-11-11" duration="1" complete="0" thirdDate="2021-04-01" thirdDate-constraint="0" expand="true"/>
+                <task id="2" name="Guión" color="#8cb6ce" meeting="false" start="2021-11-08" duration="1" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+                <task id="4" name="Diseño de jugabilidad" color="#8cb6ce" meeting="false" start="2021-11-03" duration="4" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+                <task id="6" name="Sonido" color="#8cb6ce" meeting="false" start="2021-11-04" duration="2" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+            </task>
+        </task>
+        <task id="22" name="Beta Pública" color="#ff0033" meeting="true" start="2022-02-15" duration="0" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+        <task id="78" name="PRODUCCIÓN" color="#000000" meeting="false" start="2021-11-12" duration="66" complete="0" thirdDate="2021-01-01" thirdDate-constraint="0" expand="true">
+            <depend id="79" type="2" difference="0" hardness="Strong"/>
+            <task id="7" name="Modelado" color="#000000" meeting="false" start="2021-11-12" duration="27" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="false">
+                <task id="45" name="Mod Neerâh" color="#8cb6ce" meeting="false" start="2021-11-12" duration="16" complete="0" thirdDate="2021-01-01" thirdDate-constraint="0" expand="true">
+                    <depend id="60" type="2" difference="0" hardness="Strong"/>
+                    <depend id="67" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="49" name="Mod Naneth" color="#8cb6ce" meeting="false" start="2021-11-12" duration="1" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true">
+                    <depend id="61" type="2" difference="0" hardness="Strong"/>
+                    <depend id="68" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="46" name="Mod Grag" color="#8cb6ce" meeting="false" start="2021-11-29" duration="5" complete="0" thirdDate="2021-01-01" thirdDate-constraint="0" expand="true">
+                    <depend id="62" type="2" difference="0" hardness="Strong"/>
+                    <depend id="70" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="52" name="Mod Bjorno" color="#8cb6ce" meeting="false" start="2021-12-06" duration="11" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true">
+                    <depend id="63" type="2" difference="0" hardness="Strong"/>
+                    <depend id="71" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="47" name="Mod Jegerinne" color="#8cb6ce" meeting="false" start="2021-11-12" duration="27" complete="0" thirdDate="2021-01-01" thirdDate-constraint="0" expand="true">
+                    <depend id="65" type="2" difference="0" hardness="Strong"/>
+                    <depend id="72" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="53" name="Mod Pescador" color="#8cb6ce" meeting="false" start="2021-12-13" duration="6" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true">
+                    <depend id="66" type="2" difference="0" hardness="Strong"/>
+                    <depend id="73" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="188" name="Mod Terrenos" color="#8cb6ce" meeting="false" start="2021-12-13" duration="6" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true">
+                    <depend id="74" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="190" name="Mod Props" color="#8cb6ce" meeting="false" start="2021-12-13" duration="6" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true">
+                    <depend id="76" type="2" difference="0" hardness="Strong"/>
+                </task>
+            </task>
+            <task id="11" name="Texturizado" meeting="false" start="2021-11-15" duration="33" complete="0" expand="false">
+                <task id="67" name="Tex Neerâh" color="#8cb6ce" meeting="false" start="2021-12-06" duration="7" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="68" name="Tex Naneth" color="#8cb6ce" meeting="false" start="2021-11-15" duration="2" complete="0" thirdDate="2021-01-01" thirdDate-constraint="0" expand="true"/>
+                <task id="70" name="Tex Grag" color="#8cb6ce" meeting="false" start="2021-12-06" duration="2" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="71" name="Tex Bjorno" color="#8cb6ce" meeting="false" start="2021-12-21" duration="7" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="72" name="Tex Jegerinne" color="#8cb6ce" meeting="false" start="2021-12-21" duration="7" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="73" name="Tex Pescador" color="#8cb6ce" meeting="false" start="2021-12-21" duration="7" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="74" name="Tex Terrenos" color="#8cb6ce" meeting="false" start="2021-12-21" duration="7" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="76" name="Tex Props" color="#8cb6ce" meeting="false" start="2021-12-21" duration="7" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="75" name="Tex Agua" color="#8cb6ce" meeting="false" start="2021-12-21" duration="2" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="13" name="Rig" meeting="false" start="2021-11-15" duration="31" complete="0" expand="false">
+                <task id="60" name="Rig Neerâh" color="#8cb6ce" meeting="false" start="2021-12-06" duration="10" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true">
+                    <depend id="54" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="61" name="Rig Naneth" color="#8cb6ce" meeting="false" start="2021-11-15" duration="2" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true">
+                    <depend id="55" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="62" name="Rig Grag" color="#8cb6ce" meeting="false" start="2021-12-06" duration="6" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true">
+                    <depend id="56" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="63" name="Rig Bjorno" color="#8cb6ce" meeting="false" start="2021-12-21" duration="5" complete="0" thirdDate="2021-01-01" thirdDate-constraint="0" expand="true">
+                    <depend id="57" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="65" name="Rig Jegerinne" color="#8cb6ce" meeting="false" start="2021-12-21" duration="4" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true">
+                    <depend id="58" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="66" name="Rig Pescador" color="#8cb6ce" meeting="false" start="2021-12-21" duration="5" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true">
+                    <depend id="59" type="2" difference="0" hardness="Strong"/>
+                </task>
+            </task>
+            <task id="8" name="Animaciones" meeting="false" start="2021-11-17" duration="38" complete="0" expand="false">
+                <task id="54" name="Ani Neerâh" color="#8cb6ce" meeting="false" start="2021-12-20" duration="9" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="55" name="Ani Naneth" color="#8cb6ce" meeting="false" start="2021-11-17" duration="9" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="56" name="Ani Grag" color="#8cb6ce" meeting="false" start="2021-12-14" duration="9" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="57" name="Ani Bjorno" color="#8cb6ce" meeting="false" start="2021-12-28" duration="9" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="58" name="Ani Jegerinne" color="#8cb6ce" meeting="false" start="2021-12-27" duration="10" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true"/>
+                <task id="59" name="Ani Pescador" color="#8cb6ce" meeting="false" start="2021-12-28" duration="9" complete="0" thirdDate="2021-11-12" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="9" name="Programación" color="#8cb6ce" meeting="false" start="2021-12-20" duration="38" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+            <task id="12" name="Cinemáticas" color="#8cb6ce" meeting="false" start="2022-01-10" duration="10" complete="0" thirdDate="2022-01-10" thirdDate-constraint="0" expand="true"/>
+            <task id="14" name="Sprites" color="#8cb6ce" meeting="false" start="2021-12-27" duration="10" complete="0" thirdDate="2021-12-27" thirdDate-constraint="0" expand="true"/>
+            <task id="15" name="Grabaciones" color="#8cb6ce" meeting="false" start="2022-01-10" duration="21" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+            <task id="16" name="Testeo Interno" color="#8cb6ce" meeting="false" start="2022-02-07" duration="5" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="24" name="Entrega del juego" color="#ff0033" meeting="true" start="2022-03-04" duration="0" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+        <task id="79" name="POSTPRODUCCIÓN" color="#000000" meeting="false" start="2022-02-15" duration="13" complete="0" thirdDate="2021-01-01" thirdDate-constraint="0" expand="true">
+            <task id="17" name="Marketing" color="#8cb6ce" meeting="false" start="2022-02-28" duration="3" complete="0" thirdDate="2022-02-17" thirdDate-constraint="0" expand="true"/>
+            <task id="18" name="Beta pública" color="#8cb6ce" meeting="false" start="2022-02-15" duration="13" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+            <task id="19" name="Corrección de Errores" color="#8cb6ce" meeting="false" start="2022-02-16" duration="12" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+            <task id="25" name="Lanzamiento" color="#f4f4f4" meeting="true" start="2022-03-04" duration="0" complete="0" thirdDate="2021-01-01" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="23" name="Exposición" color="#ff0033" meeting="true" start="2022-03-07" duration="0" complete="0" thirdDate="2021-04-29" thirdDate-constraint="0" expand="true"/>
+        <task id="196" name="Gala" color="#8cb6ce" meeting="true" start="2022-03-16" duration="0" complete="0" thirdDate="2021-10-04" thirdDate-constraint="0" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="Sergio Fernández" function="Default:0" contacts="" phone=""/>
+        <resource id="1" name="Iván Gallego" function="Default:0" contacts="" phone=""/>
+        <resource id="2" name="Inés García" function="Default:0" contacts="" phone=""/>
+        <resource id="3" name="Silvia Marugán" function="Default:0" contacts="" phone=""/>
+        <resource id="4" name="Alba Muñoz" function="Default:0" contacts="" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="190" resource-id="0" function="Default:0" responsible="false" load="30.0"/>
+        <allocation task-id="9" resource-id="0" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="16" resource-id="0" function="Default:0" responsible="false" load="20.0"/>
+        <allocation task-id="188" resource-id="1" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="190" resource-id="1" function="Default:0" responsible="true" load="10.0"/>
+        <allocation task-id="9" resource-id="1" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="14" resource-id="1" function="Default:0" responsible="false" load="20.0"/>
+        <allocation task-id="16" resource-id="1" function="Default:0" responsible="false" load="20.0"/>
+        <allocation task-id="68" resource-id="1" function="Default:0" responsible="true" load="15.0"/>
+        <allocation task-id="70" resource-id="1" function="Default:0" responsible="true" load="10.0"/>
+        <allocation task-id="71" resource-id="1" function="Default:0" responsible="true" load="10.0"/>
+        <allocation task-id="72" resource-id="1" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="73" resource-id="1" function="Default:0" responsible="true" load="10.0"/>
+        <allocation task-id="74" resource-id="1" function="Default:0" responsible="true" load="10.0"/>
+        <allocation task-id="76" resource-id="1" function="Default:0" responsible="true" load="5.0"/>
+        <allocation task-id="75" resource-id="1" function="Default:0" responsible="true" load="5.0"/>
+        <allocation task-id="62" resource-id="1" function="Default:0" responsible="true" load="20.0"/>
+        <allocation task-id="63" resource-id="1" function="Default:0" responsible="true" load="15.0"/>
+        <allocation task-id="58" resource-id="1" function="Default:0" responsible="true" load="2.0"/>
+        <allocation task-id="59" resource-id="1" function="Default:0" responsible="true" load="2.0"/>
+        <allocation task-id="45" resource-id="2" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="49" resource-id="2" function="Default:0" responsible="true" load="5.0"/>
+        <allocation task-id="46" resource-id="2" function="Default:0" responsible="true" load="40.0"/>
+        <allocation task-id="52" resource-id="2" function="Default:0" responsible="true" load="20.0"/>
+        <allocation task-id="190" resource-id="2" function="Default:0" responsible="false" load="20.0"/>
+        <allocation task-id="16" resource-id="2" function="Default:0" responsible="false" load="20.0"/>
+        <allocation task-id="12" resource-id="2" function="Default:0" responsible="false" load="30.0"/>
+        <allocation task-id="67" resource-id="2" function="Default:0" responsible="true" load="20.0"/>
+        <allocation task-id="70" resource-id="2" function="Default:0" responsible="false" load="20.0"/>
+        <allocation task-id="71" resource-id="2" function="Default:0" responsible="false" load="20.0"/>
+        <allocation task-id="73" resource-id="2" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="74" resource-id="2" function="Default:0" responsible="false" load="20.0"/>
+        <allocation task-id="76" resource-id="2" function="Default:0" responsible="false" load="20.0"/>
+        <allocation task-id="62" resource-id="2" function="Default:0" responsible="false" load="40.0"/>
+        <allocation task-id="63" resource-id="2" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="47" resource-id="3" function="Default:0" responsible="true" load="45.0"/>
+        <allocation task-id="53" resource-id="3" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="15" resource-id="3" function="Default:0" responsible="true" load="65.0"/>
+        <allocation task-id="16" resource-id="3" function="Default:0" responsible="true" load="20.0"/>
+        <allocation task-id="12" resource-id="3" function="Default:0" responsible="false" load="30.0"/>
+        <allocation task-id="72" resource-id="3" function="Default:0" responsible="true" load="70.0"/>
+        <allocation task-id="45" resource-id="4" function="Default:0" responsible="false" load="40.0"/>
+        <allocation task-id="49" resource-id="4" function="Default:0" responsible="false" load="5.0"/>
+        <allocation task-id="46" resource-id="4" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="14" resource-id="4" function="Default:0" responsible="true" load="30.0"/>
+        <allocation task-id="16" resource-id="4" function="Default:0" responsible="false" load="20.0"/>
+        <allocation task-id="12" resource-id="4" function="Default:0" responsible="true" load="30.0"/>
+        <allocation task-id="68" resource-id="4" function="Default:0" responsible="false" load="5.0"/>
+        <allocation task-id="70" resource-id="4" function="Default:0" responsible="false" load="15.0"/>
+        <allocation task-id="71" resource-id="4" function="Default:0" responsible="false" load="20.0"/>
+        <allocation task-id="73" resource-id="4" function="Default:0" responsible="false" load="30.0"/>
+        <allocation task-id="59" resource-id="4" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="58" resource-id="4" function="Default:0" responsible="false" load="10.0"/>
+    </allocations>
+    <vacations>
+        <vacation start="2021-12-24" end="2021-12-27" resourceid="0"/>
+        <vacation start="2021-12-31" end="2022-01-03" resourceid="0"/>
+        <vacation start="2021-12-24" end="2021-12-27" resourceid="1"/>
+        <vacation start="2021-12-30" end="2022-01-03" resourceid="1"/>
+        <vacation start="2021-12-24" end="2021-12-27" resourceid="2"/>
+        <vacation start="2021-12-31" end="2022-01-03" resourceid="2"/>
+        <vacation start="2021-12-29" end="2022-01-03" resourceid="3"/>
+        <vacation start="2021-12-24" end="2021-12-26" resourceid="3"/>
+        <vacation start="2021-12-24" end="2021-12-27" resourceid="4"/>
+        <vacation start="2021-12-31" end="2022-01-03" resourceid="4"/>
+    </vacations>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
+</project>
