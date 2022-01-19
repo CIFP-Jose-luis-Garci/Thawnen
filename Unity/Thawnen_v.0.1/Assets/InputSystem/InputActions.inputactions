@@ -1,0 +1,79 @@
+{
+    "name": "InputActions",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "f49d9067-8443-4017-a3c8-c65211045f23",
+            "actions": [
+                {
+                    "name": "Walk",
+                    "type": "Value",
+                    "id": "37b6f9c3-dd03-48e6-b006-a81fb10a7d03",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "e7dc5925-724d-4650-9265-079ef6d5cfa2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c25d70ab-ec4b-4df0-ad7f-2b0503de9908",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0696bf4d-61de-41b3-b34c-3c52485edd35",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Camera",
+            "id": "c3a68a61-5b9c-4e6f-848e-57a405a38b40",
+            "actions": [
+                {
+                    "name": "Pivot",
+                    "type": "Value",
+                    "id": "0f05a6ce-963b-4c94-9ad3-297baa80a8de",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d4fe0339-5c32-4a39-854c-237d1c031fd3",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pivot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
