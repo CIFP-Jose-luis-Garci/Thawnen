@@ -5,7 +5,8 @@ using UnityEngine;
 public class NeerahMove : MonoBehaviour
 {
     Animator animator;
-    Rigidbody rb;
+    //Rigidbody rb;
+    CharacterController cc;
     float speed;
     Vector3 dir;
 
@@ -19,6 +20,13 @@ public class NeerahMove : MonoBehaviour
     bool isGrounded;
     float jumpForce;
 
+    float groundDistance;
+
+    public float jumpSpeed = 58.0F;
+    public float gravity = 9.8F;
+
+    //Salto
+    Vector3 moveDirection;
 
     private void Awake()
     {
@@ -40,38 +48,70 @@ public class NeerahMove : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
+        cc = GetComponent<CharacterController>();
 
-        isGrounded = true;
+        groundDistance = 1.10f; 
+        // isGrounded = false;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-      
+        CheckGround();
        
     }
     private void FixedUpdate()
     {
         Walk();
+
         Turn();
         if (running && playerMove.y > 0)
         {
             animator.SetBool("Run", true);
 
-            speed = 9f;
+            speed = 50f;
 
             dir = transform.TransformDirection(Vector3.forward);
-            rb.velocity = (dir * speed);
+           //rb.velocity = (dir * speed);
         }
+    }
+
+    void CheckGround()
+    {
+        /*
+        Vector3 rayorigin = transform.position + new Vector3(0, 0, 0);
+        Debug.DrawRay(rayorigin, Vector3.down * groundDistance, Color.red);
+
+
+        RaycastHit hit;
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 0.2f))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
+
+            isGrounded = true;
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 1000, Color.white);
+            isGrounded = false;
+        }
+
+        */
+
+        isGrounded = cc.isGrounded;
+
+       print(isGrounded);
     }
 
     void Walk()
     {
         speed = 2.5f;
         dir = transform.TransformDirection(Vector3.forward);
-        rb.velocity = (dir * speed * playerMove.y);
+        //rb.velocity = (dir * speed * playerMove.y);
+        cc.SimpleMove(dir * speed * playerMove.y);
 
         animator.SetFloat("Walk", playerMove.y);
         
@@ -106,13 +146,28 @@ public class NeerahMove : MonoBehaviour
 
     void Jump()
     {
-        if (isGrounded == true)
-        {
-            jumpForce = 50f;
-            animator.SetTrigger("Jump");
-            rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
 
+
+        if (isGrounded)
+        {
+            //Creamos un nuevo Vector
+            moveDirection = new Vector3(0, 0, 0);
+            moveDirection = transform.TransformDirection(moveDirection);
+           // moveDirection *= speed;
+
+            moveDirection.y = jumpSpeed;
+            animator.SetTrigger("Jump");
         }
+        else
+        {
+            moveDirection.y = 0f;
+        }
+            //Hacemos que en todo momento la gravedad se aplique en todo momento
+            moveDirection.y -= gravity * Time.deltaTime;
+           cc.Move(moveDirection * Time.deltaTime);
+
+        
+
 
     }
 
