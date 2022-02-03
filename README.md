@@ -8,4 +8,4 @@ Thawnen está siendo desarrollado por:
 - Silvia Marugán: Diseño del videojuego, diseño de arte, modelado
 - Alba Muñoz: diseño de arte, modelado
 
-![thawnen_logo](https://user-images.githubusercontent.com/77749840/140650852-8f13b476-c348-4fc4-b226-f59570699f40.png)
+![Poster_RGB_thawnen](https://user-images.githubusercontent.com/77749840/152439653-29897e84-bd4d-442b-900f-41f650e784e8.jpg)
