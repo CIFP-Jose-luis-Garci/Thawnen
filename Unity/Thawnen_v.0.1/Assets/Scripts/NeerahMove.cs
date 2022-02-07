@@ -17,8 +17,12 @@ public class NeerahMove : MonoBehaviour
     bool running;
     bool desp;
 
+    Vector3 despl;
+
     bool isGrounded;
     float jumpForce;
+    float jumpHeight = 2.0f;
+    float gravityValue = -9.81f;
 
     float groundDistance;
 
@@ -27,6 +31,10 @@ public class NeerahMove : MonoBehaviour
 
     //Salto
     Vector3 moveDirection;
+
+    [SerializeField] Camera freeCamera;
+    float turnSmoothTime = 0.2f;
+    float turnSmoothVelocity = 30f;
 
     private void Awake()
     {
@@ -60,6 +68,8 @@ public class NeerahMove : MonoBehaviour
     {
 
         CheckGround();
+        Rotar();
+        
        
     }
     private void FixedUpdate()
@@ -71,9 +81,10 @@ public class NeerahMove : MonoBehaviour
         {
             animator.SetBool("Run", true);
 
-            speed = 50f;
+            speed = 9f;
 
             dir = transform.TransformDirection(Vector3.forward);
+            cc.SimpleMove(dir * speed * playerMove.y);
            //rb.velocity = (dir * speed);
         }
     }
@@ -148,26 +159,30 @@ public class NeerahMove : MonoBehaviour
     {
 
 
-        if (isGrounded)
+        if (cc.isGrounded && despl.y < 0)
         {
-            //Creamos un nuevo Vector
-            moveDirection = new Vector3(0, 0, 0);
-            moveDirection = transform.TransformDirection(moveDirection);
-           // moveDirection *= speed;
-
-            moveDirection.y = jumpSpeed;
-            animator.SetTrigger("Jump");
+            despl.y = 0f;
         }
-        else
         {
             moveDirection.y = 0f;
         }
-            //Hacemos que en todo momento la gravedad se aplique en todo momento
-            moveDirection.y -= gravity * Time.deltaTime;
-           cc.Move(moveDirection * Time.deltaTime);
+        if (cc.isGrounded)
+        {
+            //Aplicamos un empuje hacia arriba en el vector de desplazamiento
+            despl.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        }
 
+        despl.y += gravityValue * Time.deltaTime;
+        cc.Move(despl * Time.deltaTime);
+        animator.SetTrigger("Jump");
+
+    }
+    void Rotar()
+    {
         
-
+        float targetAngle = Mathf.Atan2(despl.x, despl.z) * Mathf.Rad2Deg + freeCamera.transform.eulerAngles.y;
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+        transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
     }
 
