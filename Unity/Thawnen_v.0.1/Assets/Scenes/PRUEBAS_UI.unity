@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1058,8 +1058,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: THAWNEN
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ad60350537ab17a47bf58dfffee907c1, type: 2}
-  m_sharedMaterial: {fileID: 2284055355726265858, guid: ad60350537ab17a47bf58dfffee907c1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 415558f8490732c43b2bc888105a9d3a, type: 2}
+  m_sharedMaterial: {fileID: 396039585809492992, guid: 415558f8490732c43b2bc888105a9d3a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1083,14 +1083,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 125
-  m_fontSizeBase: 125
+  m_fontSize: 175
+  m_fontSizeBase: 175
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -6059,7 +6059,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5380af1dc2c48ae48a275b80bc23cde0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 195472935}
 --- !u!4 &1902948259
 Transform:
   m_ObjectHideFlags: 0
