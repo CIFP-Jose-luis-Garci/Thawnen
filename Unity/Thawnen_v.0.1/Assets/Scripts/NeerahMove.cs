@@ -20,9 +20,10 @@ public class NeerahMove : MonoBehaviour
     Vector3 despl;
 
     bool isGrounded;
-    float jumpForce;
-    float jumpHeight = 2.0f;
+    float jumpHeight = 4f;
     float gravityValue = -9.81f;
+    bool saltando = false;
+    Vector3 dirJump;
 
     float groundDistance;
 
@@ -50,7 +51,7 @@ public class NeerahMove : MonoBehaviour
 
         inputActions.Player.StrongAttack.performed += _ => StrongAttack();
 
-        inputActions.Player.Jump.performed += _ => Jump();
+        inputActions.Player.Jump.performed += _ => { saltando = true; };
     }
     // Start is called before the first frame update
     void Start()
@@ -69,14 +70,14 @@ public class NeerahMove : MonoBehaviour
 
         CheckGround();
         Rotar();
-        
+        //Turn();
        
     }
     private void FixedUpdate()
     {
         Walk();
 
-        Turn();
+       
         if (running && playerMove.y > 0)
         {
             animator.SetBool("Run", true);
@@ -91,30 +92,9 @@ public class NeerahMove : MonoBehaviour
 
     void CheckGround()
     {
-        /*
-        Vector3 rayorigin = transform.position + new Vector3(0, 0, 0);
-        Debug.DrawRay(rayorigin, Vector3.down * groundDistance, Color.red);
-
-
-        RaycastHit hit;
-        // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 0.2f))
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
-
-            isGrounded = true;
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 1000, Color.white);
-            isGrounded = false;
-        }
-
-        */
-
+       
         isGrounded = cc.isGrounded;
 
-       print(isGrounded);
     }
 
     void Walk()
@@ -125,9 +105,29 @@ public class NeerahMove : MonoBehaviour
         cc.SimpleMove(dir * speed * playerMove.y);
 
         animator.SetFloat("Walk", playerMove.y);
-        
+
+        if (saltando && cc.isGrounded)
+        {
+            //Aplicamos un empuje hacia arriba en el vector de desplazamiento del salto
+
+            dirJump.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            //Lo ponemos en false para que este IF se ejecute solo una vez
+            saltando = false;
+            //cc.Move(dirJump * Time.deltaTime);
+            animator.SetTrigger("Jump");
+        }
+        //Hacemos que la caída sea suave
+        dirJump.y += gravityValue * Time.deltaTime;
+        //El vector de movimiento final será el de hacia adelante más el del salto
+        Vector3 dirFinal = (dir * speed * playerMove.y) + dirJump;
+        cc.Move(dirFinal * Time.deltaTime);
 
     }
+    /*void Turn()
+    {
+        transform.Rotate(0f, playerMove.x * 0.6f, 0f);
+        animator.SetFloat("SideWalk", playerMove.x);
+    }*/
     void StartRun()
     {
 
@@ -140,11 +140,7 @@ public class NeerahMove : MonoBehaviour
         speed = 2.5f;
         running = false;
     }
-    void Turn()
-    {
-        transform.Rotate(0f, playerMove.x * 0.6f, 0f);
-        animator.SetFloat("SideWalk", playerMove.x);
-    }
+  
 
     void WeakAttack()
     {
@@ -155,7 +151,7 @@ public class NeerahMove : MonoBehaviour
         animator.SetTrigger("Strong Attack");
     }
 
-    void Jump()
+    /*void Jump()
     {
 
 
@@ -176,14 +172,14 @@ public class NeerahMove : MonoBehaviour
         cc.Move(despl * Time.deltaTime);
         animator.SetTrigger("Jump");
 
-    }
+    }*/
     void Rotar()
     {
         
         float targetAngle = Mathf.Atan2(despl.x, despl.z) * Mathf.Rad2Deg + freeCamera.transform.eulerAngles.y;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
+        animator.SetFloat("SideWalk", freeCamera.transform.eulerAngles.y);
     }
 
     private void OnEnable()
