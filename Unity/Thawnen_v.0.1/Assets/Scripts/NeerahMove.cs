@@ -5,33 +5,23 @@ using UnityEngine;
 public class NeerahMove : MonoBehaviour
 {
     Animator animator;
-    //Rigidbody rb;
     CharacterController cc;
     float speed;
     Vector3 dir;
 
     InputActions inputActions;
     Vector2 playerMove;
-    float direction;
-
     bool running;
-    bool desp;
 
     Vector3 despl;
 
-    bool isGrounded;
-    float jumpHeight = 4f;
+    float jumpHeight = 2f;
     float gravityValue = -9.81f;
     bool saltando = false;
     Vector3 dirJump;
 
-    float groundDistance;
-
-    public float jumpSpeed = 58.0F;
-    public float gravity = 9.8F;
-
-    //Salto
-    Vector3 moveDirection;
+    //Giro
+    Vector2 rightStick;
 
     [SerializeField] Camera freeCamera;
     float turnSmoothTime = 0.2f;
@@ -52,32 +42,23 @@ public class NeerahMove : MonoBehaviour
         inputActions.Player.StrongAttack.performed += _ => StrongAttack();
 
         inputActions.Player.Jump.performed += _ => { saltando = true; };
+
+        inputActions.Camera.Pivot.performed += ctx => rightStick = ctx.ReadValue<Vector2>();
+        inputActions.Camera.Pivot.canceled += ctx => rightStick = Vector2.zero;
     }
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        //rb = GetComponent<Rigidbody>();
+      
         cc = GetComponent<CharacterController>();
 
-        groundDistance = 1.10f; 
-        // isGrounded = false;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        CheckGround();
-        Rotar();
-        //Turn();
-       
-    }
-    private void FixedUpdate()
-    {
-        Walk();
-
-       
         if (running && playerMove.y > 0)
         {
             animator.SetBool("Run", true);
@@ -86,25 +67,33 @@ public class NeerahMove : MonoBehaviour
 
             dir = transform.TransformDirection(Vector3.forward);
             cc.SimpleMove(dir * speed * playerMove.y);
-           //rb.velocity = (dir * speed);
+     
         }
-    }
+        else
+        {
+            Walk();
+        }
 
-    void CheckGround()
-    {
-       
-        isGrounded = cc.isGrounded;
-
+        Rotar();
+        Salto();
     }
 
     void Walk()
     {
         speed = 2.5f;
         dir = transform.TransformDirection(Vector3.forward);
-        //rb.velocity = (dir * speed * playerMove.y);
-        cc.SimpleMove(dir * speed * playerMove.y);
-
         animator.SetFloat("Walk", playerMove.y);
+
+       
+    }
+
+    void Salto()
+    {
+        //Si estoy tocando suelo, y cayendo me paro
+        if (cc.isGrounded && dirJump.y < 0)
+        {
+            dirJump = Vector3.zero;
+        }
 
         if (saltando && cc.isGrounded)
         {
@@ -122,12 +111,8 @@ public class NeerahMove : MonoBehaviour
         Vector3 dirFinal = (dir * speed * playerMove.y) + dirJump;
         cc.Move(dirFinal * Time.deltaTime);
 
+
     }
-    /*void Turn()
-    {
-        transform.Rotate(0f, playerMove.x * 0.6f, 0f);
-        animator.SetFloat("SideWalk", playerMove.x);
-    }*/
     void StartRun()
     {
 
@@ -151,35 +136,13 @@ public class NeerahMove : MonoBehaviour
         animator.SetTrigger("Strong Attack");
     }
 
-    /*void Jump()
-    {
-
-
-        if (cc.isGrounded && despl.y < 0)
-        {
-            despl.y = 0f;
-        }
-        {
-            moveDirection.y = 0f;
-        }
-        if (cc.isGrounded)
-        {
-            //Aplicamos un empuje hacia arriba en el vector de desplazamiento
-            despl.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        }
-
-        despl.y += gravityValue * Time.deltaTime;
-        cc.Move(despl * Time.deltaTime);
-        animator.SetTrigger("Jump");
-
-    }*/
     void Rotar()
     {
         
         float targetAngle = Mathf.Atan2(despl.x, despl.z) * Mathf.Rad2Deg + freeCamera.transform.eulerAngles.y;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
-        animator.SetFloat("SideWalk", freeCamera.transform.eulerAngles.y);
+        animator.SetFloat("SideWalk", rightStick.x);
     }
 
     private void OnEnable()
