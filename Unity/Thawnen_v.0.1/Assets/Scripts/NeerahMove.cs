@@ -27,6 +27,11 @@ public class NeerahMove : MonoBehaviour
     float turnSmoothTime = 0.2f;
     float turnSmoothVelocity = 30f;
 
+    //Ataque giro
+    [SerializeField] GameObject slash;
+    [SerializeField] Transform slashPosition;  
+
+   
     private void Awake()
     {
         inputActions = new InputActions();
@@ -53,13 +58,18 @@ public class NeerahMove : MonoBehaviour
       
         cc = GetComponent<CharacterController>();
 
+
+        slash.SetActive(true);
+
+        slashPosition = GameObject.Find("Slash").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (running && playerMove.y > 0)
+        
+        
+        if (running && playerMove.y > 0)    
         {
             animator.SetBool("Run", true);
 
@@ -134,6 +144,10 @@ public class NeerahMove : MonoBehaviour
     void StrongAttack()
     {
         animator.SetTrigger("Strong Attack");
+        Instantiate(slash, slashPosition);
+        //Transform particula = GameObject.Find("white-blue bolder(Clone)").GetComponent<Transform>();
+        //Destroy(particula);
+        //print(particula.position);
     }
 
     void Rotar()
