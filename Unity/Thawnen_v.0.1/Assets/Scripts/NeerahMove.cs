@@ -15,7 +15,7 @@ public class NeerahMove : MonoBehaviour
 
     Vector3 despl;
 
-    float jumpHeight = 2f;
+    float jumpHeight = 0.3f;
     float gravityValue = -9.81f;
     bool saltando = false;
     Vector3 dirJump;
@@ -73,7 +73,7 @@ public class NeerahMove : MonoBehaviour
         {
             animator.SetBool("Run", true);
 
-            speed = 9f;
+            speed = 3f;
 
             dir = transform.TransformDirection(Vector3.forward);
             cc.SimpleMove(dir * speed * playerMove.y);
@@ -90,7 +90,7 @@ public class NeerahMove : MonoBehaviour
 
     void Walk()
     {
-        speed = 2.5f;
+        speed = 1.9f;
         dir = transform.TransformDirection(Vector3.forward);
         animator.SetFloat("Walk", playerMove.y);
 
@@ -132,7 +132,7 @@ public class NeerahMove : MonoBehaviour
     void StopRun()
     {
         animator.SetBool("Run", false);
-        speed = 2.5f;
+        speed = 1.9f;
         running = false;
     }
   
