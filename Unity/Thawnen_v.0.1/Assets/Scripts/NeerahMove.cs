@@ -29,9 +29,13 @@ public class NeerahMove : MonoBehaviour
 
     //Ataque giro
     [SerializeField] GameObject slash;
-    [SerializeField] Transform slashPosition;  
+    [SerializeField] Transform slashPosition;
 
-   
+    //Ataque a distancia
+    [SerializeField] GameObject rocks;
+    [SerializeField] Transform rocksPos;
+    bool distance;
+
     private void Awake()
     {
         inputActions = new InputActions();
@@ -48,8 +52,12 @@ public class NeerahMove : MonoBehaviour
 
         inputActions.Player.Jump.performed += _ => { saltando = true; };
 
+        inputActions.Player.DistanceAttack.performed += _ => DistanceAttack();
+
         inputActions.Camera.Pivot.performed += ctx => rightStick = ctx.ReadValue<Vector2>();
         inputActions.Camera.Pivot.canceled += ctx => rightStick = Vector2.zero;
+
+       
     }
     // Start is called before the first frame update
     void Start()
@@ -62,6 +70,8 @@ public class NeerahMove : MonoBehaviour
         slash.SetActive(true);
 
         slashPosition = GameObject.Find("Slash").GetComponent<Transform>();
+
+        distance = false;
     }
 
     // Update is called once per frame
@@ -83,6 +93,8 @@ public class NeerahMove : MonoBehaviour
         {
             Walk();
         }
+
+        
 
         Rotar();
         Salto();
@@ -149,6 +161,15 @@ public class NeerahMove : MonoBehaviour
         //Destroy(particula);
         //print(particula.position);
     }
+
+    void DistanceAttack()
+    {
+        speed = 0;
+        distance = true;
+        Instantiate(rocks, rocksPos);
+    }
+
+   
 
     void Rotar()
     {

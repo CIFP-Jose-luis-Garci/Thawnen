@@ -65,6 +65,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Distance Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""7031f7d7-afde-4d58-8ef3-b7c3f0338542"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -133,6 +141,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""action"": ""Dodge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d4d97830-7831-43c8-baca-b2ca5038b8ad"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Distance Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -174,6 +193,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Player_WeakAttack = m_Player.FindAction("Weak Attack", throwIfNotFound: true);
         m_Player_StrongAttack = m_Player.FindAction("Strong Attack", throwIfNotFound: true);
         m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
+        m_Player_DistanceAttack = m_Player.FindAction("Distance Attack", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Pivot = m_Camera.FindAction("Pivot", throwIfNotFound: true);
@@ -232,6 +252,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_WeakAttack;
     private readonly InputAction m_Player_StrongAttack;
     private readonly InputAction m_Player_Dodge;
+    private readonly InputAction m_Player_DistanceAttack;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -242,6 +263,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @WeakAttack => m_Wrapper.m_Player_WeakAttack;
         public InputAction @StrongAttack => m_Wrapper.m_Player_StrongAttack;
         public InputAction @Dodge => m_Wrapper.m_Player_Dodge;
+        public InputAction @DistanceAttack => m_Wrapper.m_Player_DistanceAttack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -269,6 +291,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Dodge.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
                 @Dodge.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
                 @Dodge.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
+                @DistanceAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDistanceAttack;
+                @DistanceAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDistanceAttack;
+                @DistanceAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDistanceAttack;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -291,6 +316,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Dodge.started += instance.OnDodge;
                 @Dodge.performed += instance.OnDodge;
                 @Dodge.canceled += instance.OnDodge;
+                @DistanceAttack.started += instance.OnDistanceAttack;
+                @DistanceAttack.performed += instance.OnDistanceAttack;
+                @DistanceAttack.canceled += instance.OnDistanceAttack;
             }
         }
     }
@@ -336,6 +364,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnWeakAttack(InputAction.CallbackContext context);
         void OnStrongAttack(InputAction.CallbackContext context);
         void OnDodge(InputAction.CallbackContext context);
+        void OnDistanceAttack(InputAction.CallbackContext context);
     }
     public interface ICameraActions
     {
