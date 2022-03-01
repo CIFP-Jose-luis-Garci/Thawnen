@@ -153,21 +153,17 @@ public class NeerahMove : MonoBehaviour
     {
         animator.SetTrigger("Weak Attack");
     }
-    void StrongAttack()
+    void StrongAttack(Vector3 center, float radius)
     {
         animator.SetTrigger("Strong Attack");
         Instantiate(slash, slashPosition);
-        //Transform particula = GameObject.Find("white-blue bolder(Clone)").GetComponent<Transform>();
-        //Destroy(particula);
-        //print(particula.position);
+        //Collider[] hitColliders = Physics.OverlapSphere(center, radius);
+        
+
+
     }
 
-    void DistanceAttack()
-    {
-        speed = 0;
-        distance = true;
-        Instantiate(rocks, rocksPos);
-    }
+  
 
    
 
