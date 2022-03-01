@@ -47,7 +47,7 @@ public class UICompass : MonoBehaviour
 
         questMarkers.Add(marker);
     }
-
+    
     Vector2 GetPosOnCompass (UIQuestMarker marker)
     {
         Vector2 neerahPos = new Vector2(neerah.transform.position.x, neerah.transform.position.z); //La posicion de Neerah
@@ -56,8 +56,6 @@ public class UICompass : MonoBehaviour
         float angle = Vector2.SignedAngle(marker.position - neerahPos, neerahFwd);
 
         return new Vector2(compassUnit + angle, 0f);
-
-        
-
     }
+    
 }
