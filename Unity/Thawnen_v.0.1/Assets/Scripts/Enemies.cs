@@ -5,17 +5,15 @@ using UnityEngine.AI;
 
 public class Enemies : MonoBehaviour
 {
-    
     Vector3 goal;
 
     NavMeshAgent agent;
-
 
     [SerializeField] Transform player;
     bool detected = false;
 
     [SerializeField] float visionRange = 150f;
-    [SerializeField] float visionConeAngle = 360f;
+    [SerializeField] float visionConeAngle = 60f;
     float goalDistance;
 
     Animator animator;
@@ -29,6 +27,11 @@ public class Enemies : MonoBehaviour
     [SerializeField] float stoppingDistance;
 
     bool round;
+
+    float damage = 0;
+
+    [SerializeField] GameObject hit;
+    [SerializeField] Transform hitPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,11 +41,8 @@ public class Enemies : MonoBehaviour
         stoppingDistance = 1.5f;
 
         animator = GetComponent<Animator>();
-
-
+        
         StartCoroutine("Round");
-
-        //goal = transform.position;
     }
 
 
@@ -50,8 +50,6 @@ public class Enemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
         Movimiento();
       
         Detect();
@@ -62,9 +60,8 @@ public class Enemies : MonoBehaviour
     void Movimiento()
     {
 
-            goalDistance = Vector3.Distance(transform.position, goal);
-            print(goalDistance);
-            agent.speed = 5f;
+        goalDistance = Vector3.Distance(transform.position, goal);
+        agent.speed = 5f;
         if(detected)
         {
             agent.stoppingDistance = stoppingDistance;
@@ -74,31 +71,25 @@ public class Enemies : MonoBehaviour
             agent.stoppingDistance = 0f;
         }
             
-            if (goalDistance > agent.stoppingDistance)
+        if (goalDistance > agent.stoppingDistance)
+        {
+            animator.SetBool("walk", true);
+            animator.SetBool("idle", false);
+        }
+        else
+        {
+            if(detected)
             {
-                //agent.speed = 5f;
-                animator.SetBool("walk", true);
-                animator.SetBool("idle", false);
+                
+                rb.AddForce(-transform.forward * 500);
+                stepBack = true;
             }
-            else
-            {
-                if(detected)
-                {
-                print("empujon");
-                    rb.AddForce(-transform.forward * 500);
-                    stepBack = true;
-                }
-                    
-                //Vector3 newGoal = -transform.forward;
-                //agent.SetDestination(newGoal);
-                //agent.speed = 0f;
-                animator.SetBool("walk", false);
-                animator.SetBool("idle", true);
-            }
+
+            animator.SetBool("walk", false);
+            animator.SetBool("idle", true);
+         }
 
         agent.SetDestination(goal);
-
-
     }
 
 
@@ -113,7 +104,6 @@ public class Enemies : MonoBehaviour
 
     Vector3 SetRandomGoal(Vector3 zombiPos, float randomValue = 15f)
     {
-
         Vector3 returnPos;
 
         float newX = zombiPos.x + Random.Range(-randomValue, randomValue);
@@ -126,17 +116,14 @@ public class Enemies : MonoBehaviour
 
     void Detect()
     {
-
         Vector3 playerPosition = player.position;
         Vector3 vectorToPlayer = playerPosition - transform.position;
-
 
         float distanceToPlayer = Vector3.Distance(transform.position, playerPosition);
         float angleToPlayer = Vector3.Angle(transform.forward, vectorToPlayer);
 
         if (distanceToPlayer <= visionRange && angleToPlayer <= visionConeAngle)
         {
-
             detected = true;
             goal = playerPosition;
             if (distanceToPlayer < 5)
@@ -145,16 +132,13 @@ public class Enemies : MonoBehaviour
             }
             else
             {
-                visionConeAngle = 360;
+                visionConeAngle = 60;
             }
-
             if (round)
             {
                 StopCoroutine("Round");
                 round = false;
             }
-
-
         }
         else
         {
@@ -165,14 +149,20 @@ public class Enemies : MonoBehaviour
                 StartCoroutine("Round");
             }
         }
+    }
 
-
-
+    void Damage()
+    {
+        damage++;
+        animator.SetBool("hit", true);
+        if (damage == 3)
+        {
+            animator.SetBool("die", true);
+        }
     }
 
     IEnumerator Round()
     {
-        
         round = true;
         agent.speed = 0f;
         goal = transform.position;
@@ -180,17 +170,9 @@ public class Enemies : MonoBehaviour
         animator.SetBool("attack01", false);
         while (!detected)
         {
-            
-            //agent.speed = 0.4f;
             goal = SetRandomGoal(transform.position, 15f);
-            print("Haciendo ronda" + goal);
             yield return new WaitForSeconds(10f);
-
             agent.SetDestination(goal);
-
         }
     }
-
-
-
 }

@@ -332,13 +332,13 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: die
-    m_Type: 3
+  - m_Name: victory
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: victory
+  - m_Name: die
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -565,10 +565,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 110200000}
-    m_Position: {x: -220, y: -230, z: 0}
+    m_Position: {x: -280, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110228781}
-    m_Position: {x: 250, y: -230, z: 0}
+    m_Position: {x: 290, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110224626}
     m_Position: {x: 10, y: -360, z: 0}
@@ -580,7 +580,7 @@ AnimatorStateMachine:
     m_Position: {x: 490, y: -450, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110264237}
-    m_Position: {x: 10, y: 80, z: 0}
+    m_Position: {x: 10, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110297779}
     m_Position: {x: 490, y: -370, z: 0}

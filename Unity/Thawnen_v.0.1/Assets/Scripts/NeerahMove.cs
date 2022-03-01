@@ -31,11 +31,12 @@ public class NeerahMove : MonoBehaviour
     [SerializeField] GameObject slash;
     [SerializeField] Transform slashPosition;
 
-    //Ataque a distancia
-    [SerializeField] GameObject rocks;
-    [SerializeField] Transform rocksPos;
+ 
     bool distance;
 
+    Enemies enemies;
+
+    [SerializeField] Transform jaw;
     private void Awake()
     {
         inputActions = new InputActions();
@@ -52,7 +53,7 @@ public class NeerahMove : MonoBehaviour
 
         inputActions.Player.Jump.performed += _ => { saltando = true; };
 
-        inputActions.Player.DistanceAttack.performed += _ => DistanceAttack();
+       
 
         inputActions.Camera.Pivot.performed += ctx => rightStick = ctx.ReadValue<Vector2>();
         inputActions.Camera.Pivot.canceled += ctx => rightStick = Vector2.zero;
@@ -72,6 +73,9 @@ public class NeerahMove : MonoBehaviour
         slashPosition = GameObject.Find("Slash").GetComponent<Transform>();
 
         distance = false;
+
+        enemies = GameObject.Find("Golem").GetComponent<Enemies>();
+
     }
 
     // Update is called once per frame
@@ -147,25 +151,44 @@ public class NeerahMove : MonoBehaviour
         speed = 1.9f;
         running = false;
     }
-  
+
 
     void WeakAttack()
     {
         animator.SetTrigger("Weak Attack");
+
+        Collider[] colliders = Physics.OverlapSphere(jaw.position, 0.2f);
+        foreach (Collider c in colliders)
+        {
+            if (c.gameObject.tag == "Golem")
+            {
+                enemies.SendMessage("Damage");
+            }
+        }
     }
-    void StrongAttack(Vector3 center, float radius)
+    void StrongAttack()
     {
         animator.SetTrigger("Strong Attack");
         Instantiate(slash, slashPosition);
-        //Collider[] hitColliders = Physics.OverlapSphere(center, radius);
-        
-
-
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.8f);
+        foreach(Collider c in hitColliders)
+        {
+            if(c.gameObject.tag == "Golem")
+            {
+                enemies.SendMessage("Damage");
+            }
+        }
     }
 
-  
 
-   
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 0.8f);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(jaw.position, 0.2f);
+    }
+
 
     void Rotar()
     {
