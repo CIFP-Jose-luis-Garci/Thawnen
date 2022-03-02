@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class DialogueManager : MonoBehaviour
     public AudioClip speakSfx;
 
     [SerializeField] string[] sentences;
+    [SerializeField] string[] sentencesUpdate = new string[5];
+  
 
     //Clave del array de las frases
     int sentenceKey = 0;
@@ -39,17 +42,36 @@ public class DialogueManager : MonoBehaviour
         sentences = dialogues.sentences;
         dialogueBox.SetActive(true);
 
+        sentenceKey = 0;
+        //sentences.Clear();
         nameText.text = dialogues.charName;
         dialogueText.text = sentences[sentenceKey];
 
-        print(sentences[1]);
+        sentencesUpdate = new string[sentences.Length];
+        for (int n = 0; n < sentences.Length; n++)
+        {
+            sentencesUpdate[n] = sentences[n];
+            
+        }
+       
+        //print(sentences[1]);
 
     }
 
     public void DisplayNextSentence()
     {
         sentenceKey++;
-        dialogueText.text = sentences[1];
+        if(sentenceKey == sentencesUpdate.Length)
+        {
+            dialogueBox.SetActive(false);
+
+        }
+        else
+        {
+            dialogueText.text = sentencesUpdate[sentenceKey];
+        }
+       
+        
 
     }
 
