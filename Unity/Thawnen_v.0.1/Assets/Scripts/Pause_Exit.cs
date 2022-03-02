@@ -38,7 +38,7 @@ public class Pause_Exit : MonoBehaviour
     {
         //Obtenemos el menú mediante código (en vez de arrastrarlo)
         //IMPORTANTE: Cambiar el nombre del gameobject por el vuestro
-        resumeMenu = GameObject.Find("MenuPause");
+        resumeMenu = GameObject.Find("PauseMenu");
 
         //Lo desactivamos de inicio
         resumeMenu.SetActive(false);
@@ -99,7 +99,7 @@ public class Pause_Exit : MonoBehaviour
         //DESpausamos el juego y ocultamos el menú
         GameManager.gamePaused = false;
         Time.timeScale = 1f;
-        resumeMenu.SetActive(false);
+        resumeMenu.SetActive(true);
 
     }
 

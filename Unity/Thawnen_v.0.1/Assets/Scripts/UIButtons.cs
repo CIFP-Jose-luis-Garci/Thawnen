@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIButtons : MonoBehaviour
 {
@@ -20,4 +21,5 @@ public class UIButtons : MonoBehaviour
         Application.Quit();
         print("he cerrado el juego");
     }
+   
 }
