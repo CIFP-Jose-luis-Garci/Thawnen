@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class DialogueManager : MonoBehaviour
     //public Queue<string> sentences;
 
     string activeSentence;
-    public float typingSpeed = 1f;
+    public float typingSpeed = 0.05f;
 
     AudioSource myAudio;
     public AudioClip speakSfx;
@@ -45,86 +44,95 @@ public class DialogueManager : MonoBehaviour
         sentenceKey = 0;
         //sentences.Clear();
         nameText.text = dialogues.charName;
-        dialogueText.text = sentences[sentenceKey];
+        //dialogueText.text = sentences[sentenceKey];
 
-        sentencesUpdate = new string[sentences.Length];
-        for (int n = 0; n < sentences.Length; n++)
-        {
-            sentencesUpdate[n] = sentences[n];
-            
-        }
-       
-        //print(sentences[1]);
+        StartCoroutine("TypeSentence", sentences[sentenceKey]);
+
 
     }
 
     public void DisplayNextSentence()
     {
+        
+        //StopCoroutine("TypeSentence");
         sentenceKey++;
-        if(sentenceKey == sentencesUpdate.Length)
+        //Si hemos llegado al final del array
+        if(sentenceKey == sentences.Length)
         {
             dialogueBox.SetActive(false);
 
         }
         else
         {
-            dialogueText.text = sentencesUpdate[sentenceKey];
+            //dialogueText.text = sentences[sentenceKey];
+            //Iniciamos la corrutina que muestra el texto
+            StartCoroutine("TypeSentence", sentences[sentenceKey]);
         }
        
         
 
     }
 
-        /*
-        public void StartDialogue (Dialogues dialogues)
+    IEnumerator TypeSentence(string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
         {
-            //Debug.Log("Conv with" + dialogues.charName);
-            dialogueBox.SetActive(true);        
-            sentences.Clear();
-            nameText.text = dialogues.charName;
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+    }
 
-            foreach (string sentence in dialogues.sentences)
-            {           
-                sentences.Enqueue(sentence);
-            }
+    /*
+    public void StartDialogue (Dialogues dialogues)
+    {
+        //Debug.Log("Conv with" + dialogues.charName);
+        dialogueBox.SetActive(true);        
+        sentences.Clear();
+        nameText.text = dialogues.charName;
 
-            DisplayNextSentence();
+        foreach (string sentence in dialogues.sentences)
+        {           
+            sentences.Enqueue(sentence);
         }
 
-        public void DisplayNextSentence()
+        DisplayNextSentence();
+    }
+
+    public void DisplayNextSentence()
+    {
+        if (sentences.Count < 0)
         {
-            if (sentences.Count < 0)
-            {
-                EndDialogue();
-                return;
-            }
-            else
-            {
-                print("siguiente");
-                activeSentence = sentences.Dequeue();
-                StopAllCoroutines();
-                StartCoroutine(TypeSentence(activeSentence));
-            }
-
+            EndDialogue();
+            return;
         }
-
-        IEnumerator TypeSentence(string sentence)
+        else
         {
-            dialogueText.text = "";
-            foreach (char letter in sentence.ToCharArray())
-            {
-                dialogueText.text += letter;
-                yield return typingSpeed;
-            }
+            print("siguiente");
+            activeSentence = sentences.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(activeSentence));
         }
-
-        void EndDialogue()
-        {
-            print("adios");
-            dialogueBox.SetActive(false);
-        }
-
-
-        */
 
     }
+
+    IEnumerator TypeSentence(string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return typingSpeed;
+        }
+    }
+
+    void EndDialogue()
+    {
+        print("adios");
+        dialogueBox.SetActive(false);
+    }
+
+
+    */
+
+}
