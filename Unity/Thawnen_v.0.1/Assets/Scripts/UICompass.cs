@@ -14,7 +14,8 @@ public class UICompass : MonoBehaviour
     List<UIQuestMarker> questMarkers = new List<UIQuestMarker>();  //Entiendo que recoge en questMarquers una especie de array con todos los elementos que tienen la clase UIQuestMarker
     float compassUnit;
 
-    public UIQuestMarker one, two, three;
+    public UIQuestMarker mon0, mon1, mon2, mon3, mon4, mon5, estatua0, estatua1;
+
 
     //Para la variacion de la escala de los iconos en funcion de la distancia
     public float maxDistance;
@@ -24,11 +25,19 @@ public class UICompass : MonoBehaviour
     {
         compassUnit = compassImage.rectTransform.rect.width / 360f; //A cuantas unidades en la imagen de la brújula equivale un grado (creo)
 
-        
-        AddQuestMarker(one);
-        AddQuestMarker(two);
-        AddQuestMarker(three);
+        //Markers de monolitos
+        AddQuestMarker(mon0);
+        AddQuestMarker(mon1);
+        AddQuestMarker(mon2);
+        AddQuestMarker(mon3);
+        AddQuestMarker(mon4);
+        AddQuestMarker(mon5);
 
+        //Markers de estatuas
+        AddQuestMarker(estatua0);
+        AddQuestMarker(estatua1);
+
+        //Maxima distancia a la que detecta QuestMarkers
         maxDistance = 500f;
     }
 

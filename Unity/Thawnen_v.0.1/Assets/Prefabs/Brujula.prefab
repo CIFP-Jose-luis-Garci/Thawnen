@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3415495016629464654}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -501.52002, y: -464.5801, z: 104.210686}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -121,9 +121,14 @@ MonoBehaviour:
   neerah: {fileID: 0}
   iconPrefab: {fileID: 1777600639661822577, guid: 973ea2906b982a14facd63fe93c98abc,
     type: 3}
-  one: {fileID: 0}
-  two: {fileID: 0}
-  three: {fileID: 0}
+  mon0: {fileID: 0}
+  mon1: {fileID: 0}
+  mon2: {fileID: 0}
+  mon3: {fileID: 0}
+  mon4: {fileID: 0}
+  mon5: {fileID: 0}
+  estatua0: {fileID: 0}
+  estatua1: {fileID: 0}
   maxDistance: 0
 --- !u!1 &4182364287241322965
 GameObject:
