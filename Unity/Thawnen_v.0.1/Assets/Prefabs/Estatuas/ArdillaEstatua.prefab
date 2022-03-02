@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 478736206624286334}
   - component: {fileID: 4270622265778713792}
   m_Layer: 0
-  m_Name: ardilla_uvs
+  m_Name: ArdillaEstatua
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004021962311548100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 634.69, y: 46.01, z: 124.17}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2097092365905028680}
@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 2097092365905028680}
   - component: {fileID: 3871546246470437193}
   - component: {fileID: 8178838867750961610}
+  - component: {fileID: 8077070464442034335}
   m_Layer: 0
   m_Name: ardilla
   m_TagString: Untagged
@@ -128,6 +129,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &8077070464442034335
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883589218516087009}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 8
+  m_Height: 22
+  m_Direction: 1
+  m_Center: {x: 0, y: -2.5, z: 0}
 --- !u!1 &4013612571149099563
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,6 +154,7 @@ GameObject:
   - component: {fileID: 5614042296195136562}
   - component: {fileID: 5491350655228718230}
   - component: {fileID: 2707734536301975428}
+  - component: {fileID: 2521281190983268203}
   m_Layer: 0
   m_Name: Pedestal
   m_TagString: Untagged
@@ -209,3 +225,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2521281190983268203
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4013612571149099563}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0032837, z: 1}
+  m_Center: {x: 0, y: 0.0016418993, z: 0}

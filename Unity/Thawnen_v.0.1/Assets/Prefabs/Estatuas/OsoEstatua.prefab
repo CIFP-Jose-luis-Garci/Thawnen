@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6615847896091513922}
   - component: {fileID: 2926595973471483590}
   m_Layer: 0
-  m_Name: oso_uvs
+  m_Name: OsoEstatua
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,15 +24,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5808489270137884408}
-  m_LocalRotation: {x: -0, y: 0.45827127, z: -0, w: 0.88881236}
-  m_LocalPosition: {x: 1590.26, y: 62.9, z: -209.05}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4561807855336547698}
   - {fileID: 1197380435597004302}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 54.551, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2926595973471483590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 1197380435597004302}
   - component: {fileID: 1243508907196653226}
   - component: {fileID: 8711976698543842744}
+  - component: {fileID: 5875293365419934220}
   m_Layer: 0
   m_Name: Pedestal
   m_TagString: Untagged
@@ -128,6 +129,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5875293365419934220
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7694349173345996823}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0032837, z: 1}
+  m_Center: {x: 0, y: 0.0016418993, z: 0}
 --- !u!1 &7914035127947162588
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,6 +153,7 @@ GameObject:
   - component: {fileID: 4561807855336547698}
   - component: {fileID: 4072278760229026889}
   - component: {fileID: 273173323928940629}
+  - component: {fileID: 810695609757456900}
   m_Layer: 0
   m_Name: bjorno
   m_TagString: Untagged
@@ -209,3 +224,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &810695609757456900
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7914035127947162588}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 10.05
+  m_Height: 27
+  m_Direction: 1
+  m_Center: {x: 0, y: -3, z: 0}
