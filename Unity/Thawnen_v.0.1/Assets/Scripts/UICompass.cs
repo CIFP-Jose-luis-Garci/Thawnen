@@ -12,19 +12,24 @@ public class UICompass : MonoBehaviour
     public GameObject iconPrefab;
 
     List<UIQuestMarker> questMarkers = new List<UIQuestMarker>();  //Entiendo que recoge en questMarquers una especie de array con todos los elementos que tienen la clase UIQuestMarker
-    float compassUnit;  //No tengo claro que es pero su valor es 2,90 y pico
+    float compassUnit;
 
     public UIQuestMarker one, two, three;
+
+    //Para la variacion de la escala de los iconos en funcion de la distancia
+    public float maxDistance;
 
     // Start is called before the first frame update
     void Start()
     {
-        compassUnit = compassImage.rectTransform.rect.width / 360f;
+        compassUnit = compassImage.rectTransform.rect.width / 360f; //A cuantas unidades en la imagen de la brújula equivale un grado (creo)
+
         
         AddQuestMarker(one);
         AddQuestMarker(two);
         AddQuestMarker(three);
 
+        maxDistance = 500f;
     }
 
     // Update is called once per frame
@@ -35,6 +40,17 @@ public class UICompass : MonoBehaviour
         foreach(UIQuestMarker marker in questMarkers)
         {
             marker.image.rectTransform.anchoredPosition = GetPosOnCompass(marker);
+
+            //variacion de la escala de los iconos con la distancia
+            float dist = Vector2.Distance(new Vector2(neerah.transform.position.x, neerah.transform.position.z), marker.position);
+            float scale = 0f;
+
+            if(dist < maxDistance)
+            
+                scale = 1f - (dist / maxDistance);
+            
+            marker.image.rectTransform.localScale = Vector3.one * scale;
+
         }
     }
 
@@ -55,7 +71,7 @@ public class UICompass : MonoBehaviour
 
         float angle = Vector2.SignedAngle(marker.position - neerahPos, neerahFwd);
 
-        return new Vector2(compassUnit + angle, 0f);
+        return new Vector2(compassUnit * angle, 0f);
     }
     
 }
