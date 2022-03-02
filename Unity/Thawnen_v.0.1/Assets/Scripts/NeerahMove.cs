@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,7 +36,7 @@ public class NeerahMove : MonoBehaviour
 
     Enemies enemies;
 
-    [SerializeField] Transform jaw;
+    Transform jaw;
     private void Awake()
     {
         inputActions = new InputActions();
@@ -74,6 +74,8 @@ public class NeerahMove : MonoBehaviour
 
         distance = false;
 
+        jaw = GameObject.Find("Fox_Jaw").GetComponent<Transform>();
+
         enemies = GameObject.Find("Golem").GetComponent<Enemies>();
 
     }
@@ -83,7 +85,7 @@ public class NeerahMove : MonoBehaviour
     {
         
         
-        if (running && playerMove.y > 0)    
+        if (running && playerMove.y > 0 && !GameManager.gamePaused)    
         {
             animator.SetBool("Run", true);
 
@@ -93,7 +95,7 @@ public class NeerahMove : MonoBehaviour
             cc.SimpleMove(dir * speed * playerMove.y);
      
         }
-        else
+        else if(!GameManager.gamePaused)
         {
             Walk();
         }
@@ -115,6 +117,9 @@ public class NeerahMove : MonoBehaviour
 
     void Salto()
     {
+        if (GameManager.gamePaused)
+            return;
+
         //Si estoy tocando suelo, y cayendo me paro
         if (cc.isGrounded && dirJump.y < 0)
         {
@@ -186,13 +191,15 @@ public class NeerahMove : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, 0.8f);
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(jaw.position, 0.2f);
+        //Gizmos.DrawWireSphere(jaw.position, 0.2f);
     }
 
 
     void Rotar()
     {
-        
+        if (GameManager.gamePaused)
+            return;
+
         float targetAngle = Mathf.Atan2(despl.x, despl.z) * Mathf.Rad2Deg + freeCamera.transform.eulerAngles.y;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
         transform.rotation = Quaternion.Euler(0f, angle, 0f);

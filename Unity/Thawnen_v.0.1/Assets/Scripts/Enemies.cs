@@ -9,7 +9,7 @@ public class Enemies : MonoBehaviour
 
     NavMeshAgent agent;
 
-    [SerializeField] Transform player;
+    Transform player;
     bool detected = false;
 
     [SerializeField] float visionRange = 150f;
@@ -43,6 +43,8 @@ public class Enemies : MonoBehaviour
         animator = GetComponent<Animator>();
         
         StartCoroutine("Round");
+
+        player = GameObject.Find("NeraahPrefab").GetComponent<Transform>();
     }
 
 
@@ -95,7 +97,7 @@ public class Enemies : MonoBehaviour
 
     void Attack()
     {
-        if(goalDistance > 1.5f && goalDistance < 3f)
+        if(goalDistance > 1.5f && goalDistance < 3f && detected)
         {
             animator.SetBool("attack01", true);
         }
@@ -153,12 +155,13 @@ public class Enemies : MonoBehaviour
 
     void Damage()
     {
+        print(damage);
         damage++;
         animator.SetBool("hit", true);
-        if (damage == 3)
-        {
-            animator.SetBool("die", true);
-        }
+        animator.SetFloat("die", damage);
+        
+        
+
     }
 
     IEnumerator Round()

@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/PRUEBAS_UI.unity
     guid: 64a68d7079ecabf408c15d79fa5e9da5
   - enabled: 1
-    path: Assets/Scenes/PRUEBAS_Loading.unity
-    guid: d216e10505343d441bcde48611ad5eba
+    path: Assets/Scenes/Juego.unity
+    guid: 05052118953f34445b9679e8001cc580
   - enabled: 1
-    path: Assets/Scenes/PRUEBAS_terrain.unity
-    guid: 5fa484ae7316e4f4d9aff5c6ad16e69e
+    path: Assets/Scenes/PRUEBAS_opciones.unity
+    guid: 1a3d77acf723a2442b3dd2dcbb41883f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0134f08829e16ff4a989cd99e702ffd3,
       type: 2}
