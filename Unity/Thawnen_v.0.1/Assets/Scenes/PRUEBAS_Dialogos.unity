@@ -284,10 +284,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3a6785953fa2b4da8555aa72714618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charName: Chucrut
+  charName: Grag
   sentences:
-  - Soy una ardilla
-  - Me llamo chucrut
+  - "\xA1Hey!"
+  - "\xA1Hola! \xA1Hola!"
+  - "\xA1S\xED, soy yo, la estatua!"
+  - "Bueno\u2026 no soy una estatua, pero estoy aqu\xED atrapada."
+  - " \xA1Qu\xE9 raro es ver un ser como t\xFA por aqu\xED! Normalmente se esfuman
+    al minuto."
+  - "Hace muchos a\xF1os que mor\xED\u2026"
+  - "Estaba andando por el bosque y ca\xED en una trampa de unos campistas aburridos.
+    Despu\xE9s de eso, todo es dolor y un borr\xF3n negro."
+  - "En fin, despu\xE9s de tantos a\xF1os a\xFAn sigue doliendo cada d\xEDa m\xE1s
+    y m\xE1s. Ni siquiera puedo descansar en paz."
+  - "T\xF9\u2026 \xBFpodr\xEDas ayudarme?"
+  - "\xA1Por favor! \xA1Por favor! \xA1Ll\xE9vate mi alma, lib\xE9rame del dolor!"
 --- !u!1 &157129880
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,9 +545,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charName: Bjorno Bjovannah
   sentences:
-  - Soy un oso
-  - Sigo siendo un oso
-  - Adioso
+  - "Eso es... \xBFotra alma?"
+  - "Hac\xEDa mucho que no ve\xEDa a nadie."
+  - "Te preguntar\xE1s c\xF3mo he acabado aqu\xED. Bueno, es muy simple."
+  - "Un a\xF1o hubo una terrible sequ\xEDa y todos los r\xEDos desaparecieron. "
+  - "Todos menos el que estaba m\xE1s cerca del poblado humano."
+  - "No aguantaba m\xE1s ni el hambre ni la sed. Decid\xED acercarme y... fue un
+    error..."
+  - "Pese a que estaba muy d\xE9bil, los humanos pensaron que quer\xEDa atacarles.
+    As\xED que fueron apor m\xED y me mataron."
+  - Solo deseo descansar en paz.
+  - Y poder saciar mi sed...
+  - "Por favor, ay\xFAdame... Por favor..."
 --- !u!1 &469414514
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +880,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continue>>
+  m_Text: Siguiente>>
 --- !u!222 &1065646452
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -8,10 +8,10 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueBox;
     public Text nameText;
     public Text dialogueText;
-    //public Queue<string> sentences;
+    
 
     string activeSentence;
-    public float typingSpeed = 0.05f;
+    public float typingSpeed = 0.005f;
 
     AudioSource myAudio;
     public AudioClip speakSfx;
@@ -25,15 +25,10 @@ public class DialogueManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        //sentences = new Queue<string>();
+    {        
         //myAudio = GetComponent<AudioSource>();
     }
-    private void Awake()
-    {
-        //dialogueBox.SetActive(false);
-    }
-
+   
 
     public void StartDialogue(Dialogues dialogues)
     {
@@ -41,19 +36,14 @@ public class DialogueManager : MonoBehaviour
         sentences = dialogues.sentences;
         dialogueBox.SetActive(true);
 
-        sentenceKey = 0;
-        //sentences.Clear();
+        sentenceKey = 0;        
         nameText.text = dialogues.charName;
-        //dialogueText.text = sentences[sentenceKey];
 
         StartCoroutine("TypeSentence", sentences[sentenceKey]);
-
-
     }
 
     public void DisplayNextSentence()
-    {
-        
+    {        
         //StopCoroutine("TypeSentence");
         sentenceKey++;
         //Si hemos llegado al final del array
@@ -79,60 +69,9 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
-        }
-    }
-
-    /*
-    public void StartDialogue (Dialogues dialogues)
-    {
-        //Debug.Log("Conv with" + dialogues.charName);
-        dialogueBox.SetActive(true);        
-        sentences.Clear();
-        nameText.text = dialogues.charName;
-
-        foreach (string sentence in dialogues.sentences)
-        {           
-            sentences.Enqueue(sentence);
-        }
-
-        DisplayNextSentence();
-    }
-
-    public void DisplayNextSentence()
-    {
-        if (sentences.Count < 0)
-        {
-            EndDialogue();
-            return;
-        }
-        else
-        {
-            print("siguiente");
-            activeSentence = sentences.Dequeue();
-            StopAllCoroutines();
-            StartCoroutine(TypeSentence(activeSentence));
-        }
-
-    }
-
-    IEnumerator TypeSentence(string sentence)
-    {
-        dialogueText.text = "";
-        foreach (char letter in sentence.ToCharArray())
-        {
-            dialogueText.text += letter;
             yield return typingSpeed;
         }
     }
 
-    void EndDialogue()
-    {
-        print("adios");
-        dialogueBox.SetActive(false);
-    }
-
-
-    */
-
+   
 }
