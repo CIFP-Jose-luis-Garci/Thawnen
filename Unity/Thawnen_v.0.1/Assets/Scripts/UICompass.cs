@@ -38,7 +38,7 @@ public class UICompass : MonoBehaviour
         AddQuestMarker(estatua1);
 
         //Maxima distancia a la que detecta QuestMarkers
-        maxDistance = 500f;
+        maxDistance = 250f;
     }
 
     // Update is called once per frame
