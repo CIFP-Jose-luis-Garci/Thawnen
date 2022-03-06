@@ -308,7 +308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3303252521119277161}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4461975, y: 2.7610016, z: -2.0825348}
+  m_LocalPosition: {x: -2.908661, y: 2.7610016, z: -1.0804901}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8478161911457687317}
@@ -583,7 +583,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4167541569126740579}
-  m_LocalRotation: {x: 0.24650393, y: 0.44084534, z: -0.12730345, w: 0.8536305}
+  m_LocalRotation: {x: 0.21888222, y: 0.59033704, z: -0.1704721, w: 0.757979}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -660,8 +660,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4501327735671917109}
-  m_LocalRotation: {x: 0.26194948, y: 0.43846336, z: -0.13528009, w: 0.8490181}
-  m_LocalPosition: {x: -2.4461975, y: 2.7610016, z: -2.0825348}
+  m_LocalRotation: {x: 0.23259698, y: 0.58714724, z: -0.18115366, w: 0.75388336}
+  m_LocalPosition: {x: -2.908661, y: 2.7610016, z: -1.0804901}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7769756910959482447}
@@ -808,7 +808,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5292244613178557236}
-  m_LocalRotation: {x: 0.26194948, y: 0.43846333, z: -0.13528009, w: 0.8490181}
+  m_LocalRotation: {x: 0.232597, y: 0.58714724, z: -0.18115366, w: 0.75388336}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -882,7 +882,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8944728074342849824}
-  m_LocalRotation: {x: 0.27734932, y: 0.4359301, z: -0.14323309, w: 0.84411293}
+  m_LocalRotation: {x: 0.2462713, y: 0.583755, z: -0.19180357, w: 0.7495278}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -980,6 +980,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NeraahPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332627676196404110, guid: 364c37d895802894dbb7ea4ef28a6f23,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6567209780187112441, guid: 364c37d895802894dbb7ea4ef28a6f23,
         type: 3}

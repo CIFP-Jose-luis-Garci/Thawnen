@@ -9,10 +9,13 @@ public class Pause : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] Button controlsbutton;
     [SerializeField] Button continueButton;
+   
+
     // Start is called before the first frame update
     void Start()
     {
         optionsMenu.SetActive(false);
+        
     }
 
     public void OptionsMenu()
@@ -29,4 +32,5 @@ public class Pause : MonoBehaviour
         continueButton.Select();
 
     }
+
 }

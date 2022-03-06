@@ -18,6 +18,9 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] string[] sentences;
     [SerializeField] string[] sentencesUpdate = new string[5];
+
+    [SerializeField] Button nextbutton;
+
   
 
     //Clave del array de las frases
@@ -36,6 +39,7 @@ public class DialogueManager : MonoBehaviour
         sentences = dialogues.sentences;
         dialogueBox.SetActive(true);
 
+        nextbutton.Select();
         sentenceKey = 0;        
         nameText.text = dialogues.charName;
 
