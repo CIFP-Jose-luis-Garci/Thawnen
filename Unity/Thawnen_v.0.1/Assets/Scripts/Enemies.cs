@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemies : MonoBehaviour
 {
@@ -32,6 +33,10 @@ public class Enemies : MonoBehaviour
 
     [SerializeField] GameObject hit;
     [SerializeField] Transform hitPosition;
+
+    Transform hand;
+
+    [SerializeField] Slider healthSlider;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +50,9 @@ public class Enemies : MonoBehaviour
         StartCoroutine("Round");
 
         player = GameObject.Find("NeraahPrefab").GetComponent<Transform>();
+
+
+        hand = GameObject.Find("Hand_R").GetComponent<Transform>();
     }
 
 
@@ -57,6 +65,8 @@ public class Enemies : MonoBehaviour
         Detect();
 
         Attack();
+
+        healthSlider.value = GameManager.health;
     }
 
     void Movimiento()
@@ -100,6 +110,15 @@ public class Enemies : MonoBehaviour
         if(goalDistance > 1.5f && goalDistance < 3f && detected)
         {
             animator.SetBool("attack01", true);
+        }
+        Collider[] colliders = Physics.OverlapSphere(hand.position, 3f);
+        foreach (Collider c in colliders)
+        {
+            if (c.gameObject.tag == "Player")
+            {
+                GameManager.health--;
+                Debug.Log("A");
+            }
         }
     }
     

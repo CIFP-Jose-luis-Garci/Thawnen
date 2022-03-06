@@ -1,6 +1,8 @@
  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;  
 
 public class NeerahMove : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class NeerahMove : MonoBehaviour
 
     float jumpHeight = 0.3f;
     float gravityValue = -9.81f;
+    float fallVelocity;
     bool saltando = false;
     Vector3 dirJump;
 
@@ -37,6 +40,10 @@ public class NeerahMove : MonoBehaviour
     Enemies enemies;
 
     Transform jaw;
+
+
+    [SerializeField] Volume volume;
+    [SerializeField] MotionBlur motionBlur;
     private void Awake()
     {
         inputActions = new InputActions();
@@ -78,12 +85,15 @@ public class NeerahMove : MonoBehaviour
 
         enemies = GameObject.Find("Golem").GetComponent<Enemies>();
 
+        volume = GameObject.Find("Global Volume").GetComponent<Volume>();
+        motionBlur = GameObject.Find("Global Volume").GetComponent<MotionBlur>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         
         if (running && playerMove.y > 0 && !GameManager.gamePaused)    
         {
@@ -99,8 +109,6 @@ public class NeerahMove : MonoBehaviour
         {
             Walk();
         }
-
-        
 
         Rotar();
         Salto();
@@ -119,7 +127,7 @@ public class NeerahMove : MonoBehaviour
     {
         if (GameManager.gamePaused)
             return;
-
+        
         //Si estoy tocando suelo, y cayendo me paro
         if (cc.isGrounded && dirJump.y < 0)
         {
@@ -130,23 +138,24 @@ public class NeerahMove : MonoBehaviour
         {
             //Aplicamos un empuje hacia arriba en el vector de desplazamiento del salto
 
+            animator.SetTrigger("Jump");
             dirJump.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             //Lo ponemos en false para que este IF se ejecute solo una vez
             saltando = false;
             //cc.Move(dirJump * Time.deltaTime);
-            animator.SetTrigger("Jump");
         }
         //Hacemos que la caída sea suave
         dirJump.y += gravityValue * Time.deltaTime;
         //El vector de movimiento final será el de hacia adelante más el del salto
         Vector3 dirFinal = (dir * speed * playerMove.y) + dirJump;
         cc.Move(dirFinal * Time.deltaTime);
-
-
+        
+       
     }
+
     void StartRun()
     {
-
+        volume.weight = 1f;
         running = true;
 
     }
@@ -155,6 +164,7 @@ public class NeerahMove : MonoBehaviour
         animator.SetBool("Run", false);
         speed = 1.9f;
         running = false;
+        volume.weight = 0f;
     }
 
 

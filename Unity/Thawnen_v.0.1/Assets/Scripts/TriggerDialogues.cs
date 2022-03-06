@@ -30,8 +30,6 @@ public class TriggerDialogues : MonoBehaviour
         {
             textbutton.SetActive(true);
             dialogues.SetActive(true);
-            textbutton.SetActive(true);
-            //startButton.Select();
             EventSystem.current.SetSelectedGameObject(textbutton);
             
 
@@ -46,8 +44,7 @@ public class TriggerDialogues : MonoBehaviour
         {
             textbutton.SetActive(false);
             dialogues.SetActive(false);
-            textbutton.SetActive(false);
-            //startButton.Select();
+            dialoguesbox.SetActive(false);
             EventSystem.current.SetSelectedGameObject(null); 
 
 

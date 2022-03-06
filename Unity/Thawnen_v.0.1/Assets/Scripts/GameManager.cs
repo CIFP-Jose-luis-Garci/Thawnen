@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     //Escena en la que estoy jugando
     public static int currentScene;
 
+    public static int health = 10;
+
     // Start is called before the first frame update
     void Start()
     {
