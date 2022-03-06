@@ -6499,42 +6499,42 @@ PrefabInstance:
     - target: {fileID: 19621543551542086, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6793488
+      value: 0.9607444
       objectReference: {fileID: 0}
     - target: {fileID: 19621543551542086, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.19617659
+      value: 0.27743518
       objectReference: {fileID: 0}
     - target: {fileID: 19621543551542086, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.67934877
+      value: -0.00001956308
       objectReference: {fileID: 0}
     - target: {fileID: 19621543551542086, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.19617656
+      value: 0.0000056492518
       objectReference: {fileID: 0}
     - target: {fileID: 2448695494011720828, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6756781
+      value: 0.9555532
       objectReference: {fileID: 0}
     - target: {fileID: 2448695494011720828, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.20846868
+      value: 0.29481882
       objectReference: {fileID: 0}
     - target: {fileID: 2448695494011720828, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.675678
+      value: -0.00001944078
       objectReference: {fileID: 0}
     - target: {fileID: 2448695494011720828, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.20846869
+      value: 0.0000059981044
       objectReference: {fileID: 0}
     - target: {fileID: 2636504401979716928, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
@@ -6549,7 +6549,7 @@ PrefabInstance:
     - target: {fileID: 4501327735671917104, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: 0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 4501327735671917104, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
@@ -6559,27 +6559,27 @@ PrefabInstance:
     - target: {fileID: 4501327735671917104, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.34584045
+      value: -3.3458405
       objectReference: {fileID: 0}
     - target: {fileID: 4501327735671917104, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6756781
+      value: 0.9555532
       objectReference: {fileID: 0}
     - target: {fileID: 4501327735671917104, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.20846868
+      value: 0.29481885
       objectReference: {fileID: 0}
     - target: {fileID: 4501327735671917104, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.675678
+      value: -0.000019440851
       objectReference: {fileID: 0}
     - target: {fileID: 4501327735671917104, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.20846868
+      value: 0.000005998082
       objectReference: {fileID: 0}
     - target: {fileID: 4740553750075138340, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
@@ -6604,7 +6604,7 @@ PrefabInstance:
     - target: {fileID: 7153213400908993052, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: 0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 7153213400908993052, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
@@ -6614,7 +6614,7 @@ PrefabInstance:
     - target: {fileID: 7153213400908993052, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.34584045
+      value: -3.3458405
       objectReference: {fileID: 0}
     - target: {fileID: 7769756910959482447, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
@@ -6624,17 +6624,17 @@ PrefabInstance:
     - target: {fileID: 7769756910959482447, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 596.5
+      value: 1592.2
       objectReference: {fileID: 0}
     - target: {fileID: 7769756910959482447, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 52.6
+      value: 70.35
       objectReference: {fileID: 0}
     - target: {fileID: 7769756910959482447, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 104.375565
+      value: -219.9
       objectReference: {fileID: 0}
     - target: {fileID: 7769756910959482447, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
@@ -6689,22 +6689,22 @@ PrefabInstance:
     - target: {fileID: 8478161911457687317, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6717744
+      value: 0.9500325
       objectReference: {fileID: 0}
     - target: {fileID: 8478161911457687317, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22072445
+      value: 0.31215107
       objectReference: {fileID: 0}
     - target: {fileID: 8478161911457687317, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.67177427
+      value: -0.000019356683
       objectReference: {fileID: 0}
     - target: {fileID: 8478161911457687317, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.2207244
+      value: 0.000006360003
       objectReference: {fileID: 0}
     - target: {fileID: 8974101040091278302, guid: fda659556b03c9b47a73d962b0cf8a92,
         type: 3}
