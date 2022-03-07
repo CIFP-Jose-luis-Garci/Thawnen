@@ -99,7 +99,7 @@ public class Pause_Exit : MonoBehaviour
         //DESpausamos el juego y ocultamos el menú
         GameManager.gamePaused = false;
         Time.timeScale = 1f;
-        resumeMenu.SetActive(true);
+        resumeMenu.SetActive(false);
 
     }
 
