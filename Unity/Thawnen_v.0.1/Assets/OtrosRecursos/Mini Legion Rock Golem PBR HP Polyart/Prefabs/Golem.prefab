@@ -392,8 +392,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.6766396, y: 4.2294807, z: 1}
-  m_Center: {x: 0, y: 2.0867414, z: 0}
+  m_Size: {x: 2.18, y: 3.87, z: 1}
+  m_Center: {x: 0, y: 2.17, z: 0}
 --- !u!195 &8370422698342720355
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -403,7 +403,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8370422698684838345}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2.34
+  m_Radius: 1.19
   m_Speed: 3.5
   m_Acceleration: 10
   avoidancePriority: 50
@@ -428,10 +428,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f83417fe60a72124fafbda507719b7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   visionRange: 25
   visionConeAngle: 60
   stoppingDistance: 0
+  hit: {fileID: 0}
+  hitPosition: {fileID: 0}
+  healthSlider: {fileID: 0}
 --- !u!1 &8370422698684838347
 GameObject:
   m_ObjectHideFlags: 0

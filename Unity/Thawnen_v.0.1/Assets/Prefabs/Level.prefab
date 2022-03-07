@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1646394731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062656958755660932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d975e6f57ff98458874d00b7742cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogues: {fileID: 0}
+  dialoguesbox: {fileID: 0}
+  textbutton: {fileID: 0}
+  startButton: {fileID: 0}
 --- !u!1 &2527964573409719011
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,6 +83,22 @@ Transform:
   m_Father: {fileID: 6398319382630804926}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &921139905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444892453435540995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d975e6f57ff98458874d00b7742cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogues: {fileID: 0}
+  dialoguesbox: {fileID: 0}
+  textbutton: {fileID: 0}
+  startButton: {fileID: 0}
 --- !u!1 &8175241238341278723
 GameObject:
   m_ObjectHideFlags: 0
@@ -3001,6 +3033,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 517095e1787943b4892f844242541d58, type: 3}
+--- !u!1 &2062656958755660932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7914035127947162588, guid: 517095e1787943b4892f844242541d58,
+    type: 3}
+  m_PrefabInstance: {fileID: 8175241239832991576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3072717237087519514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6615847896091513922, guid: 517095e1787943b4892f844242541d58,
@@ -3224,11 +3262,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArdillaEstatua
       objectReference: {fileID: 0}
+    - target: {fileID: 8077070464442034335, guid: bc1260b4253c3b44980aac47267f3281,
+        type: 3}
+      propertyPath: m_Height
+      value: 22.258749
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077070464442034335, guid: bc1260b4253c3b44980aac47267f3281,
+        type: 3}
+      propertyPath: m_Radius
+      value: 11.129374
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077070464442034335, guid: bc1260b4253c3b44980aac47267f3281,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.57328635
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077070464442034335, guid: bc1260b4253c3b44980aac47267f3281,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -2.5000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077070464442034335, guid: bc1260b4253c3b44980aac47267f3281,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.00000001107115
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc1260b4253c3b44980aac47267f3281, type: 3}
 --- !u!4 &8633570483992154268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 478736206624286334, guid: bc1260b4253c3b44980aac47267f3281,
+    type: 3}
+  m_PrefabInstance: {fileID: 8175241240033572578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6444892453435540995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2883589218516087009, guid: bc1260b4253c3b44980aac47267f3281,
     type: 3}
   m_PrefabInstance: {fileID: 8175241240033572578}
   m_PrefabAsset: {fileID: 0}

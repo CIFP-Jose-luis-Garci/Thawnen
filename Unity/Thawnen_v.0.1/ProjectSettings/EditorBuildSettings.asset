@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PRUEBA_Intro.unity
     guid: ec590129badd75d43bfaeb23fbb4e72e
+  - enabled: 1
+    path: Assets/Scenes/PRUEBA_Creditos.unity
+    guid: b47b19273fcffaf489a307543e037994
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0134f08829e16ff4a989cd99e702ffd3,
       type: 2}
